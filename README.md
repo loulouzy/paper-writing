@@ -4,6 +4,29 @@
 
 An academic paper writing & polishing skill based on Huang & Ding's *[Writing AI Conference Papers: A Handbook for Beginners](https://github.com/hzwer/WritingAIPaper)*, targeting top-tier AI venues (CVPR / NeurIPS / ICML / ACM series). Core creed, from Fei-Fei Li: **"Badly written papers get bad reviews. Period."**
 
+## 安装 / Install
+
+通过 npm 下载 / Download via npm:
+
+```bash
+npm install @loulouzy/paper-writing
+```
+
+安装后把 SKILL.md 复制到你的 agent skills 目录 / After install, copy the SKILL.md files into your agent's skills folder:
+
+```bash
+# Claude Code (英文版 / English)
+cp -r node_modules/@loulouzy/paper-writing/paper-writing ~/.claude/skills/
+# Claude Code (中文版 / Chinese)
+cp -r node_modules/@loulouzy/paper-writing/paper-writing-zh ~/.claude/skills/
+```
+
+不想装依赖，可用 npx 直接取包内文件路径 / Or grab the files without a dependency via npx:
+
+```bash
+npm pack @loulouzy/paper-writing   # 下载 tarball，解压即得两个 SKILL.md
+```
+
 ## Skills
 
 | Skill | 语言 / Language | 说明 / Description |

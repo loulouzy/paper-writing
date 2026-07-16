@@ -1,0 +1,35 @@
+{
+  "name": "@loulouzy/paper-writing",
+  "version": "1.0.0",
+  "description": "Academic paper writing & polishing skill (English + Chinese) based on the 'Writing AI Conference Papers' methodology, for Claude Code / Codex agents",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "codex",
+    "skill",
+    "agent-skill",
+    "paper-writing",
+    "academic-writing",
+    "llm",
+    "prompt"
+  ],
+  "license": "MIT",
+  "author": "loulouzy",
+  "homepage": "https://github.com/loulouzy/paper-writing#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loulouzy/paper-writing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/loulouzy/paper-writing/issues"
+  },
+  "files": [
+    "paper-writing/SKILL.md",
+    "paper-writing-zh/SKILL.md",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
