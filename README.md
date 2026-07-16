@@ -6,26 +6,35 @@ An academic paper writing & polishing skill based on Huang & Ding's *[Writing AI
 
 ## 安装 / Install
 
-通过 npm 下载 / Download via npm:
+默认面向 **Codex**（skills 目录 `~/.codex/skills/`）。Claude Code 用户把下面路径里的 `.codex` 换成 `.claude` 即可。
+Defaults to **Codex** (skills folder `~/.codex/skills/`). Claude Code users: replace `.codex` with `.claude` in the paths below.
+
+**1. 通过 npm 下载 / Download via npm:**
 
 ```bash
 npm install @mulou/paper-writing
 ```
 
-安装后把 SKILL.md 复制到你的 agent skills 目录 / After install, copy the SKILL.md files into your agent's skills folder:
+**2. 把 SKILL.md 复制到 Codex skills 目录 / Copy the SKILL.md files into the Codex skills folder:**
+
+macOS / Linux:
 
 ```bash
-# Claude Code (英文版 / English)
-cp -r node_modules/@mulou/paper-writing/paper-writing ~/.claude/skills/
-# Claude Code (中文版 / Chinese)
-cp -r node_modules/@mulou/paper-writing/paper-writing-zh ~/.claude/skills/
+mkdir -p ~/.codex/skills
+cp -r node_modules/@mulou/paper-writing/paper-writing    ~/.codex/skills/
+cp -r node_modules/@mulou/paper-writing/paper-writing-zh ~/.codex/skills/
 ```
 
-不想装依赖，可用 npx 直接取包内文件路径 / Or grab the files without a dependency via npx:
+Windows (PowerShell):
 
-```bash
-npm pack @mulou/paper-writing   # 下载 tarball，解压即得两个 SKILL.md
+```powershell
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
+Copy-Item -Recurse node_modules\@mulou\paper-writing\paper-writing    "$env:USERPROFILE\.codex\skills\"
+Copy-Item -Recurse node_modules\@mulou\paper-writing\paper-writing-zh "$env:USERPROFILE\.codex\skills\"
 ```
+
+不想装依赖，可用 `npm pack @mulou/paper-writing` 下载 tarball，解压即得两个 SKILL.md。
+Or grab the files without a dependency: `npm pack @mulou/paper-writing` downloads a tarball; unpack it to get the two SKILL.md files.
 
 ## Skills
 
@@ -74,9 +83,9 @@ In every mode, the skill proactively flags **overclaiming** — statements excee
 
 ## 使用方法 / Usage
 
-将 skill 目录放入你的 agent 的 skills 目录（例如 Claude Code 的 `~/.claude/skills/`，或 Codex 的 `~/.codex/skills/`）。每个 skill 是一个包含 `SKILL.md` 的目录，frontmatter 中的 `description` 描述触发条件，供 agent 自动匹配加载。
+将 skill 目录放入你的 agent 的 skills 目录（默认 Codex：`~/.codex/skills/`；Claude Code：`~/.claude/skills/`）。每个 skill 是一个包含 `SKILL.md` 的目录，frontmatter 中的 `description` 描述触发条件，供 agent 自动匹配加载。
 
-Place a skill directory into your agent's skills folder (e.g. `~/.claude/skills/` for Claude Code, or `~/.codex/skills/` for Codex). Each skill is a directory containing a `SKILL.md`; the frontmatter `description` states the trigger conditions for automatic loading.
+Place a skill directory into your agent's skills folder (Codex by default: `~/.codex/skills/`; Claude Code: `~/.claude/skills/`). Each skill is a directory containing a `SKILL.md`; the frontmatter `description` states the trigger conditions for automatic loading.
 
 两个版本的规则完全一致，区别只在与用户交流的语言（论文正文始终用英文写作）。按对话语言选择版本，或两个都装。
 
