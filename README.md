@@ -6,8 +6,8 @@ An academic paper writing & polishing skill based on Huang & Ding's *[Writing AI
 
 ## 安装 / Install
 
-默认面向 **Codex**（skills 目录 `~/.codex/skills/`）。Claude Code 用户把下面路径里的 `.codex` 换成 `.claude` 即可。
-Defaults to **Codex** (skills folder `~/.codex/skills/`). Claude Code users: replace `.codex` with `.claude` in the paths below.
+默认面向 **Claude Code**（skills 目录 `~/.claude/skills/`）。Codex 用户把下面路径里的 `.claude` 换成 `.codex` 即可。
+Defaults to **Claude Code** (skills folder `~/.claude/skills/`). Codex users: replace `.claude` with `.codex` in the paths below.
 
 **1. 通过 npm 下载 / Download via npm:**
 
@@ -15,22 +15,22 @@ Defaults to **Codex** (skills folder `~/.codex/skills/`). Claude Code users: rep
 npm install @mulou/paper-writing
 ```
 
-**2. 把 SKILL.md 复制到 Codex skills 目录 / Copy the SKILL.md files into the Codex skills folder:**
+**2. 把 SKILL.md 复制到 Claude Code skills 目录 / Copy the SKILL.md files into the Claude Code skills folder:**
 
 macOS / Linux:
 
 ```bash
-mkdir -p ~/.codex/skills
-cp -r node_modules/@mulou/paper-writing/paper-writing    ~/.codex/skills/
-cp -r node_modules/@mulou/paper-writing/paper-writing-zh ~/.codex/skills/
+mkdir -p ~/.claude/skills
+cp -r node_modules/@mulou/paper-writing/paper-writing    ~/.claude/skills/
+cp -r node_modules/@mulou/paper-writing/paper-writing-zh ~/.claude/skills/
 ```
 
 Windows (PowerShell):
 
 ```powershell
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills" | Out-Null
-Copy-Item -Recurse node_modules\@mulou\paper-writing\paper-writing    "$env:USERPROFILE\.codex\skills\"
-Copy-Item -Recurse node_modules\@mulou\paper-writing\paper-writing-zh "$env:USERPROFILE\.codex\skills\"
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
+Copy-Item -Recurse node_modules\@mulou\paper-writing\paper-writing    "$env:USERPROFILE\.claude\skills\"
+Copy-Item -Recurse node_modules\@mulou\paper-writing\paper-writing-zh "$env:USERPROFILE\.claude\skills\"
 ```
 
 不想装依赖，可用 `npm pack @mulou/paper-writing` 下载 tarball，解压即得两个 SKILL.md。
@@ -83,9 +83,9 @@ In every mode, the skill proactively flags **overclaiming** — statements excee
 
 ## 使用方法 / Usage
 
-将 skill 目录放入你的 agent 的 skills 目录（默认 Codex：`~/.codex/skills/`；Claude Code：`~/.claude/skills/`）。每个 skill 是一个包含 `SKILL.md` 的目录，frontmatter 中的 `description` 描述触发条件，供 agent 自动匹配加载。
+将 skill 目录放入你的 agent 的 skills 目录（默认 Claude Code：`~/.claude/skills/`；Codex：`~/.codex/skills/`）。每个 skill 是一个包含 `SKILL.md` 的目录，frontmatter 中的 `description` 描述触发条件，供 agent 自动匹配加载。
 
-Place a skill directory into your agent's skills folder (Codex by default: `~/.codex/skills/`; Claude Code: `~/.claude/skills/`). Each skill is a directory containing a `SKILL.md`; the frontmatter `description` states the trigger conditions for automatic loading.
+Place a skill directory into your agent's skills folder (Claude Code by default: `~/.claude/skills/`; Codex: `~/.codex/skills/`). Each skill is a directory containing a `SKILL.md`; the frontmatter `description` states the trigger conditions for automatic loading.
 
 两个版本的规则完全一致，区别只在与用户交流的语言（论文正文始终用英文写作）。按对话语言选择版本，或两个都装。
 
